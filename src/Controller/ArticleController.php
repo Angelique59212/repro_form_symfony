@@ -58,6 +58,17 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $copiesCount = (int)$form->get('copies')->getData();
+            for ($i = 1; $i<= $copiesCount; $i++ ) {
+                $articleClone = new Article();
+                $articleClone
+                    ->setContent($article->getContent() . " (copy {$i}")
+                    ->setTitle($article->getTitle())
+                    ->setDateAdd(new \DateTime())
+                    ;
+                $entityManager->persist($articleClone);
+
+            }
             $entityManager->flush();
             $this->addFlash('success', "Article ajouté");
             return $this->redirectToRoute('articles_list');

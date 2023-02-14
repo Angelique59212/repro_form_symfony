@@ -16,6 +16,9 @@ class ArticleType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('dateAdd')
+            ->add('copies', null, [
+                'mapped' => false,
+            ])
             ->add('submit',SubmitType::class)
         ;
     }
