@@ -29,11 +29,17 @@ class FakeChoiceType extends AbstractType
             ])
             ->add('ChoiceInt', ChoiceType::class, [
                 'label' => "Values sous form de Integer",
-                'placeholder' => "Faites votre choix - integers",
                 'choices' => [
-                    'choix 1 -integer' => 5,
-                    'choix 2 -integer' => 2,
-                    'choix 3 -integer' => 42,
+                    'Plus petit que 10' => [
+                        'Choix 1 ' =>5,
+                        'Choix 2 ' =>2,
+                        'Choix 3 ' =>4,
+                    ],
+                    'Plus grand que 10' => [
+                      'Choix1' => 11,
+                      'Choix autre' => 24,
+                      'Choix universel' => 42,
+                    ],
                 ],
                 'choice_attr' => function($choice, $key, $value) {
                     $class = strtolower(str_replace(' ', '-', $key));

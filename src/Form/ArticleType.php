@@ -21,6 +21,7 @@ class ArticleType extends AbstractType
             ->add('dateAdd', DateType::class, [
                 'widget' => 'single_text',
             ])
+
             ->add('save', SubmitType::class, [
                 'label' => 'Sauvegarder',
             ])
