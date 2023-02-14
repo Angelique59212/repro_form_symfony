@@ -11,10 +11,6 @@ import './styles/app.css';
 import "/node_modules/bootstrap/dist/css/bootstrap.css";
 import "/node_modules/foundation/scss/foundation.scss";
 
-
-// start the Stimulus application
-import './bootstrap';
-
 $(document).ready(function() {
     // you may need to change this code if you are not using Bootstrap Datepicker
     $('.js-datepicker').datepicker({
