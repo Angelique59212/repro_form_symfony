@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.content }}</td>
+                    <td><a href="{{ path('/article/edit/{id}', {id: article.id}) }}">Editer</a></td>
+                </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
